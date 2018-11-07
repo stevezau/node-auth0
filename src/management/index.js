@@ -27,6 +27,7 @@ var ManagementTokenProvider = require('./ManagementTokenProvider');
 var RulesConfigsManager = require('./RulesConfigsManager');
 var EmailTemplatesManager = require('./EmailTemplatesManager');
 var GuardianManager = require('./GuardianManager');
+var CustomDomainsManager = require('./CustomDomainsManager');
 
 var BASE_URL_FORMAT = 'https://%s/api/v2';
 var MANAGEMENT_API_AUD_FORMAT = 'https://%s/api/v2/';
@@ -163,6 +164,14 @@ var ManagementClient = function(options) {
    * @type {GuardianManager}
    */
   this.guardian = new GuardianManager(managerOptions);
+
+  /**
+   * Simple abstraction for performing CRUD operations on the
+   * custom domains endpoint.
+   *
+   * @type {CustomDomainsManager}
+   */
+  this.customDomains = new CustomDomainsManager(managerOptions);
 
   /**
    * Simple abstraction for performing CRUD operations on the
@@ -2078,5 +2087,111 @@ utils.wrapPropertyMethod(
  * @return  {Promise|undefined}
  */
 utils.wrapPropertyMethod(ManagementClient, 'updateGuardianFactor', 'guardian.factors.update');
+
+/**
+ * Create an Auth0 Custom Domain.
+ *
+ * @method    create
+ * @memberOf  module:management.CustomDomainsManager.prototype
+ *
+ * @example
+ * management.customDomains.createCustomDomain(data, function (err) {
+ *   if (err) {
+ *     // Handle error.
+ *   }
+ *
+ *   // CustomDomain created.
+ * });
+ *
+ * @param   {Object}    data     The custom domain data object.
+ * @param   {Function}  [cb]     Callback function.
+ *
+ * @return  {Promise|undefined}
+ */
+utils.wrapPropertyMethod(ManagementClient, 'createCustomDomain', 'customDomains.create');
+
+/**
+ * Get all Auth0 CustomDomains.
+ *
+ * @method    getAll
+ * @memberOf  module:management.CustomDomainsManager.prototype
+ *
+ * @example
+ * management.customDomains.getCustomDomains(function (err, customDomains) {
+ *   console.log(customDomains.length);
+ * });
+ *
+ * @return  {Promise|undefined}
+ */
+utils.wrapPropertyMethod(ManagementClient, 'getCustomDomains', 'customDomains.getAll');
+
+/**
+ * Get a Custom Domain.
+ *
+ * @method    get
+ * @memberOf  module:management.CustomDomainsManager.prototype
+ *
+ * @example
+ * management.customDomains.getCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err, customDomain) {
+ *   if (err) {
+ *     // Handle error.
+ *   }
+ *
+ *   console.log(customDomain);
+ * });
+ *
+ * @param   {Object}    params            Custom Domain parameters.
+ * @param   {String}    params.id         Custom Domain ID.
+ * @param   {Function}  [cb]              Callback function.
+ *
+ * @return  {Promise|undefined}
+ */
+utils.wrapPropertyMethod(ManagementClient, 'getCustomDomain', 'customDomains.get');
+
+/**
+ * Verify a Custom Domain.
+ *
+ * @method    verify
+ * @memberOf  module:management.CustomDomainsManager.prototype
+ *
+ * @example
+ * management.customDomains.verifyCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err, customDomain) {
+ *   if (err) {
+ *     // Handle error.
+ *   }
+ *
+ *   console.log(customDomain);
+ * });
+ *
+ * @param   {Object}    params            Custom Domain parameters.
+ * @param   {String}    params.id         Custom Domain ID.
+ * @param   {Function}  [cb]              Callback function.
+ *
+ * @return  {Promise|undefined}
+ */
+utils.wrapPropertyMethod(ManagementClient, 'verifyCustomDomain', 'customDomains.verify');
+
+/**
+ * Delete a Custom Domain.
+ *
+ * @method    delete
+ * @memberOf  module:management.CustomDomainsManager.prototype
+ *
+ * @example
+ * management.deleteCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err) {
+ *   if (err) {
+ *     // Handle error.
+ *   }
+ *
+ *   // CustomDomain deleted.
+ * });
+ *
+ * @param   {Object}    params            Custom Domain parameters.
+ * @param   {String}    params.id         Custom Domain ID.
+ * @param   {Function}  [cb]              Callback function.
+ *
+ * @return  {Promise|undefined}
+ */
+utils.wrapPropertyMethod(ManagementClient, 'deleteCustomDomain', 'customDomains.delete');
 
 module.exports = ManagementClient;
