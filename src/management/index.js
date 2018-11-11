@@ -1981,7 +1981,7 @@ utils.wrapPropertyMethod(ManagementClient, 'getGuardianFactors', 'guardian.facto
  * @method    getGuardianFactorProvider
  * @memberOf  module:management.GuardianManager.prototype
  *
- * management.getFactorProvider({ factor: 'sms', provider: 'twilio'}, function (err, provider) {
+ * management.getFactorProvider({ name: 'sms', provider: 'twilio'}, function (err, provider) {
  *   console.log(provider);
  * });
  *
@@ -2002,7 +2002,7 @@ utils.wrapPropertyMethod(
  * @method    updateFactorProvider
  * @memberOf  module:management.GuardianManager.prototype
  *
- * management.updateGuardianFactorProvider({ factor: 'sms', provider: 'twilio' }, {
+ * management.updateGuardianFactorProvider({ name: 'sms', provider: 'twilio' }, {
  *  messaging_service_sid: 'XXXXXXXXXXXXXX',
  *  auth_token: 'XXXXXXXXXXXXXX',
  *  sid: 'XXXXXXXXXXXXXX'
@@ -2028,7 +2028,7 @@ utils.wrapPropertyMethod(
  * @method    getGuardianFactorTemplates
  * @memberOf  module:management.GuardianManager.prototype
  *
- * management.getGuardianFactorTemplates({ factor: 'sms' }, function (err, templates) {
+ * management.getGuardianFactorTemplates({ name: 'sms' }, function (err, templates) {
  *   console.log(templates);
  * });
  *
@@ -2049,7 +2049,7 @@ utils.wrapPropertyMethod(
  * @method    updateGuardianFactorTemplates
  * @memberOf  module:management.GuardianManager.prototype
  *
- * management.updateGuardianFactorTemplates({ factor: 'sms' }, {
+ * management.updateGuardianFactorTemplates({ name: 'sms' }, {
  *  enrollment_message: "{{code}} is your verification code for {{tenant.friendly_name}}. Please enter this code to verify your enrollment.",
  *  verification_message: "{{code}} is your verification code for {{tenant.friendly_name}}"
  * }, function(err, templates) {
@@ -2074,7 +2074,7 @@ utils.wrapPropertyMethod(
  * @method    updateGuardianFactor
  * @memberOf  module.GuardianManager.prototype
  *
- * management.updateGuardianFactor({ factor: 'sms' }, {
+ * management.updateGuardianFactor({ name: 'sms' }, {
  *  enabled: true
  * }, function(err, factor) {
  *  console.log(factor);
