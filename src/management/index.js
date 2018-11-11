@@ -2095,7 +2095,7 @@ utils.wrapPropertyMethod(ManagementClient, 'updateGuardianFactor', 'guardian.fac
  * @memberOf  module:management.CustomDomainsManager.prototype
  *
  * @example
- * management.customDomains.createCustomDomain(data, function (err) {
+ * management.createCustomDomain(data, function (err) {
  *   if (err) {
  *     // Handle error.
  *   }
@@ -2117,7 +2117,7 @@ utils.wrapPropertyMethod(ManagementClient, 'createCustomDomain', 'customDomains.
  * @memberOf  module:management.CustomDomainsManager.prototype
  *
  * @example
- * management.customDomains.getCustomDomains(function (err, customDomains) {
+ * management.getCustomDomains(function (err, customDomains) {
  *   console.log(customDomains.length);
  * });
  *
@@ -2132,7 +2132,7 @@ utils.wrapPropertyMethod(ManagementClient, 'getCustomDomains', 'customDomains.ge
  * @memberOf  module:management.CustomDomainsManager.prototype
  *
  * @example
- * management.customDomains.getCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err, customDomain) {
+ * management.getCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err, customDomain) {
  *   if (err) {
  *     // Handle error.
  *   }
@@ -2155,7 +2155,7 @@ utils.wrapPropertyMethod(ManagementClient, 'getCustomDomain', 'customDomains.get
  * @memberOf  module:management.CustomDomainsManager.prototype
  *
  * @example
- * management.customDomains.verifyCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err, customDomain) {
+ * management.verifyCustomDomain({ id: CUSTOM_DOMAIN_ID }, function (err, customDomain) {
  *   if (err) {
  *     // Handle error.
  *   }
